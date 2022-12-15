@@ -8,6 +8,8 @@ class TaxoratsWidgets extends StatelessWidget {
   final String content;
   const TaxoratsWidgets({Key? key, required this.text, required this.image, required this.content}) : super(key: key);
 
+
+
   @override
   Widget build(BuildContext context) {
     return  Column(
