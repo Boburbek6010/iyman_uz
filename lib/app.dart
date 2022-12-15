@@ -11,6 +11,8 @@ import 'features/tasbeh/presentation/screen/tasbeh_screen.dart';
 class App extends StatelessWidget {
   const App({super.key});
 
+  // keep coding...
+
   @override
   Widget build(BuildContext context) => MaterialApp(
     debugShowCheckedModeBanner: false,
