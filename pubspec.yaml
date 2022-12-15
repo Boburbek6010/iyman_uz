@@ -1,0 +1,80 @@
+name: iyman_uz
+description: Flutter project for Iyman Uz
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.5 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # design
+  cupertino_icons: ^1.0.2
+  flutter_neumorphic: ^3.2.0
+
+  # translate
+  easy_localization: ^3.0.1
+
+  # animation
+  animated_text_kit: any
+
+
+  # local database
+  shared_preferences: ^2.0.15
+
+  # architecture pattern
+  provider: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/translations/ru-RU.json
+    - assets/translations/en-US.json
+    - assets/translations/uz-UZ.json
+
+    - assets/images/namoz/niyat_qilish.png
+    - assets/images/namoz/takbir.gif
+    - assets/images/namoz/qiyom.png
+    - assets/images/namoz/ruku.gif
+    - assets/images/namoz/sajda.gif
+    - assets/images/namoz/jalsa.gif
+    - assets/images/namoz/sajda_2.gif
+    - assets/images/namoz/sajda_3.gif
+    - assets/images/namoz/qiyom_2.gif
+    - assets/images/namoz/qiyom_3.gif
+    - assets/images/namoz/qada.gif
+    - assets/images/namoz/ikkinchi_rakat.gif
+    - assets/images/namoz/salom.gif
+    - assets/images/taxorat/tahorat_niyati.gif
+    - assets/images/taxorat/burunni_chayish.gif
+    - assets/images/taxorat/duo.jpeg
+    - assets/images/taxorat/masx_tortish.gif
+    - assets/images/taxorat/og'iz_chayish.gif
+    - assets/images/taxorat/oyoqlarni_yuvish.gif
+    - assets/images/taxorat/qo'llarni_yuvish.gif
+    - assets/images/taxorat/qo'lni_tirsak_bn_yuvish.gif
+    - assets/images/taxorat/yuzni_yuvish.gif
+    - assets/images/splash/app_logo.png
+    - assets/images/intro/hajj_img.png
+    - assets/images/intro/iyman_img.png
+    - assets/images/splash/logo.png
+    - assets/images/intro/namaz_img.jpeg
+    - assets/images/intro/ramadan_img.jpeg
+    - assets/images/splash/transparent_img.png
+    - assets/images/intro/zakat_img.jpeg
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+
