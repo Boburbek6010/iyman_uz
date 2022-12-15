@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iyman_uz/features/main_home/presentation/widgets/every_item_widget.dart';
 
+import '../../../namoz/presentation/screens/namoz_screen.dart';
+import '../../../tasbeh/presentation/screen/tasbeh_screen.dart';
+import '../../../taxorat/presentation/screens/taxorat_screen.dart';
 import '../widgets/ramazon_counter_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,7 +20,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.green.shade900,
         centerTitle: true,
-        title: const Text("IYMAN.uz"),
+        title: const Text("TAQVO.uz"),
       ),
       body: Column(
         children: [
@@ -130,7 +133,7 @@ class HomeScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                   width: MediaQuery.of(context).size.width * 0.32,
                   height: MediaQuery.of(context).size.height * 0.18,
-                  image: const AssetImage('assets/images/img_1.png'),
+                  image: const AssetImage('assets/images/home/img_1.png'),
                 ),
               ],
             ),
@@ -148,15 +151,20 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     EveryItemWidget(
-                      image: Image.asset('assets/images/img_3.png'),
+                      image: Image.asset('assets/images/home/img_3.png'),
                       text: "IYMON",
+                      onPressed: (){},
                     ),
                     EveryItemWidget(
-                      image: Image.asset('assets/images/img_4.png'),
+                      onPressed: (){
+                        Navigator.pushNamed(context, NamozScreen.id);
+                      },
+                      image: Image.asset('assets/images/home/img_4.png'),
                       text: "NAMOZ",
                     ),
                     EveryItemWidget(
-                      image: Image.asset('assets/images/img_5.png'),
+                      onPressed: (){},
+                      image: Image.asset('assets/images/home/img_5.png'),
                       text: "RO'ZA",
                     ),
                   ],
@@ -165,15 +173,20 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     EveryItemWidget(
-                      image: Image.asset('assets/images/img_6.png'),
+                      onPressed: (){
+
+                      },
+                      image: Image.asset('assets/images/home/img_6.png'),
                       text: "ZAKOT",
                     ),
                     EveryItemWidget(
-                      image: Image.asset('assets/images/img_3.png'),
+                      onPressed: (){},
+                      image: Image.asset('assets/images/home/img_3.png'),
                       text: "HAJ",
                     ),
                     EveryItemWidget(
-                      image: Image.asset('assets/images/img_3.png'),
+                      onPressed: (){},
+                      image: Image.asset('assets/images/home/img_3.png'),
                       text: "QIBLA",
                     ),
                   ],
@@ -182,16 +195,23 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     EveryItemWidget(
-                      image: Image.asset('assets/images/img_3.png'),
+                      onPressed: (){},
+                      image: Image.asset('assets/images/home/img_3.png'),
                       text: "QUR'ON",
                     ),
                     EveryItemWidget(
-                      image: Image.asset('assets/images/img_3.png'),
+                      onPressed: (){
+                        Navigator.pushNamed(context, TasbehScreen.id);
+                      },
+                      image: Image.asset('assets/images/home/img_3.png'),
                       text: "ZIKRLAR",
                     ),
                     EveryItemWidget(
-                      image: Image.asset('assets/images/img_3.png'),
-                      text: "QUIZ",
+                      onPressed: (){
+                        Navigator.pushNamed(context, TaxoratScreen.id);
+                      },
+                      image: Image.asset('assets/images/home/img_3.png'),
+                      text: "TAHORAT",
                     ),
                   ],
                 ),
@@ -199,8 +219,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const RamazonCounterWidget(),
-
-
         ],
       ),
     );

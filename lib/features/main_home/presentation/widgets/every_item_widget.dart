@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class EveryItemWidget extends StatelessWidget {
   final Image image;
   final String text;
+  final VoidCallback onPressed;
 
-  const EveryItemWidget({Key? key, required this.image, required this.text})
-      : super(key: key);
+  const EveryItemWidget({Key? key, required this.image, required this.onPressed, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,12 @@ class EveryItemWidget extends StatelessWidget {
             splashRadius: 60,
             icon: image,
             splashColor: Colors.white,
-            onPressed: () {  },
+            onPressed: () {
+              onPressed();
+            },
           ),
         ),
+        const SizedBox(height: 5),
         Text(
           text,
           style: const TextStyle(

@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:iyman_uz/features/intro/presentation/screens/intro_screen.dart';
 
 class SplashVM extends ChangeNotifier {
   bool isPressed = false;
@@ -22,5 +23,10 @@ class SplashVM extends ChangeNotifier {
     notifyListeners();
   }
 
+  void isLangChosen(BuildContext context){
+    if(isPressed) {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const IntroPage()));
+    }
+  }
 
 }

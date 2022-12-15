@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iyman_uz/features/home/presentation/screens/home_screen.dart';
+import 'package:iyman_uz/features/main_home/presentation/screens/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroProvider extends ChangeNotifier {
@@ -17,7 +17,7 @@ class IntroProvider extends ChangeNotifier {
             duration: const Duration(milliseconds: 500),
             curve: Curves.easeInOutBack,
           )
-        : Navigator.pushReplacementNamed(context, HomePage.id);
+        : Navigator.pushReplacementNamed(context, HomeScreen.id);
     notifyListeners();
   }
 

@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:iyman_uz/features/splash/view_model/splash_vm.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'app.dart';
 
@@ -18,15 +20,20 @@ Future<void> main() async {
   ]);
 
   runApp(
-    EasyLocalization(
-      supportedLocales: const [
-        Locale('en', 'US'),
-        Locale('ru', 'RU'),
-        Locale('uz', 'UZ'),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => SplashVM()),
       ],
-      path: "assets/translations",
-      fallbackLocale: const Locale('uz', 'UZ'),
-      child: const App(),
+      child: EasyLocalization(
+        supportedLocales: const [
+          Locale('en', 'US'),
+          Locale('ru', 'RU'),
+          Locale('uz', 'UZ'),
+        ],
+        path: "assets/translations",
+        fallbackLocale: const Locale('uz', 'UZ'),
+        child: const App(),
+      ),
     ),
   );
 }

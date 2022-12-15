@@ -11,86 +11,102 @@ class LanguageChooseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+    return ChangeNotifierProvider<SplashVM>(
       create: (context) => SplashVM(),
       builder: (context, widget) {
         var splashVm = Provider.of<SplashVM>(context);
-        return SizedBox(
-          width: double.infinity,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Center(
-                child: DefaultTextStyle(
-                  style: const TextStyle(
-                    fontSize: 30.0,
-                    fontFamily: 'Bobbers',
-                    color: AppColors.appTextColor,
-                  ),
-                  child: AnimatedTextKit(
-                    repeatForever: true,
-                    animatedTexts: [
-                      TyperAnimatedText('salam'.tr(),
-                        textStyle: const TextStyle(color: AppColors.appTextColor),
-                      ),
-                      TyperAnimatedText("Iyman.uz",
-                        textStyle: const TextStyle(color: AppColors.appTextColor),),
-                      TyperAnimatedText("welcome".tr(),
-                        textStyle: const TextStyle(color: AppColors.appTextColor),),
-                    ],
-                  ),
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Center(
+              child: DefaultTextStyle(
+                style: const TextStyle(
+                  fontSize: 30.0,
+                  fontFamily: 'Bobbers',
+                  color: AppColors.appTextColor,
+                ),
+                child: AnimatedTextKit(
+                  repeatForever: true,
+                  animatedTexts: [
+                    TyperAnimatedText('salam'.tr(),
+                      textStyle: const TextStyle(color: AppColors.appTextColor),
+                    ),
+                    TyperAnimatedText("Iyman.uz",
+                      textStyle: const TextStyle(color: AppColors.appTextColor),),
+                    TyperAnimatedText("welcome".tr(),
+                      textStyle: const TextStyle(color: AppColors.appTextColor),),
+                  ],
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height*0.4),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  // # RU
-                  MaterialButton(
-                    shape: const StadiumBorder(),
-                    color: splashVm.isLanguageChosen == 'ru' ? AppColors.introPageButtonColor :AppColors.appTextColor,
-                    onPressed: () {
-                      splashVm.ru();
-                      context.setLocale(
-                        const Locale("ru", "RU"),
-                      );
-                    },
-                    child: const Text("RU"),
-                  ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height*0.13),
+            Column(
+              children: [
+                // # RU
+                MaterialButton(
+                  shape: const StadiumBorder(),
+                  color: splashVm.isLanguageChosen == 'ru' ? AppColors.introPageButtonColor :AppColors.appTextColor,
+                  onPressed: () {
+                    splashVm.ru();
+                    context.setLocale(
+                      const Locale("ru", "RU"),
+                    );
+                  },
+                  child: const Text("RU"),
+                ),
 
-                  // # ENG
-                  MaterialButton(
-                    shape: const StadiumBorder(),
-                    color: splashVm.isLanguageChosen == "en" ? AppColors.introPageButtonColor :AppColors.appTextColor,
-                    onPressed: ()  {
-                      splashVm.en();
-                      context.setLocale(
-                        const Locale("en", "US"),
-                      );
-                    },
-                    child: const Text("ENG"),
-                  ),
+                const SizedBox(height: 30),
 
-                  // # UZ
-                  MaterialButton(
-                    shape: const StadiumBorder(),
-                    color: splashVm.isLanguageChosen == "uz" ? AppColors.introPageButtonColor :AppColors.appTextColor,
-                    onPressed: () {
-                      splashVm.uz();
-                      context.setLocale(
-                        const Locale("uz", "UZ"),
-                      );
-                    },
-                    child: const Text("UZ"),
-                  ),
-                ],
+                // # ENG
+                MaterialButton(
+                  shape: const StadiumBorder(),
+                  color: splashVm.isLanguageChosen == "en" ? AppColors.introPageButtonColor :AppColors.appTextColor,
+                  onPressed: ()  {
+                    splashVm.en();
+                    context.setLocale(
+                      const Locale("en", "US"),
+                    );
+                  },
+                  child: const Text("ENG"),
+                ),
+
+                const SizedBox(height: 30),
+
+                // # UZ
+                MaterialButton(
+                  shape: const StadiumBorder(),
+                  color: splashVm.isLanguageChosen == "uz" ? AppColors.introPageButtonColor :AppColors.appTextColor,
+                  onPressed: () {
+                    print("object");
+                    splashVm.uz();
+                    context.setLocale(
+                      const Locale("uz", "UZ"),
+                    );
+                  },
+                  child: const Text("UZ"),
+                ),
+              ],
+            ),
+            const SizedBox(height: 50),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+              height: 50,
+              child: MaterialButton(
+                onPressed: () => splashVm.isLangChosen(context),
+                shape: const StadiumBorder(),
+                color: splashVm.isPressed ?AppColors.appTextColor : AppColors.grey,
+                child: const Center(
+                  child: Icon(Icons.navigate_next, color: AppColors.backgroundColor),
+                ),
               ),
-              const SizedBox(height: 50),
-            ],
-          ),
+            ),
+            const SizedBox(height: 40),
+          ],
         );
       }
     );
   }
 }
+
+
+

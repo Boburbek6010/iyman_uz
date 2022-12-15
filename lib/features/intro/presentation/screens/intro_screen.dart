@@ -4,6 +4,8 @@ import 'package:iyman_uz/features/intro/presentation/widgets/intro_view_widget.d
 import 'package:iyman_uz/features/intro/view_model/intro_provider_vm.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/colors/app_color.dart';
+
 class IntroPage extends StatelessWidget {
   static const String id = 'intro_page';
 
@@ -98,11 +100,10 @@ class IntroPage extends StatelessWidget {
                             context,
                           ),
                           child: Container(
-                            margin: const EdgeInsets.all(20),
+                            margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                             height: 50,
-                            width: 300,
                             decoration: BoxDecoration(
-                              color: Colors.blue.shade400,
+                              color: AppColors.appTextColor,
                               borderRadius: BorderRadius.circular(30),
                             ),
                             child: Center(

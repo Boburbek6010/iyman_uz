@@ -8,6 +8,7 @@ class AppColors {
   
   // intro page color 
  static const backgroundColorIntroPage = Color(0xFFffffff);
+ static const grey = Color(0xffa4a0a0);
  static const introPageButtonColor = Color.fromRGBO(95, 165, 238, 1);
 
  // indicator color

@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:iyman_uz/features/main_home/presentation/screens/home.dart';
+import 'package:iyman_uz/features/taxorat/presentation/screens/taxorat_screen.dart';
 
-import 'features/home/presentation/screens/home_screen.dart';
 import 'features/intro/presentation/screens/intro_screen.dart';
 import 'features/namoz/presentation/screens/namoz_screen.dart';
 import 'features/splash/presentation/screens/splash_screen.dart';
@@ -9,9 +10,6 @@ import 'features/tasbeh/presentation/screen/tasbeh_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
-
-  static final RouteObserver<PageRoute> routeObserver =
-  RouteObserver<PageRoute>();
 
   @override
   Widget build(BuildContext context) => MaterialApp(
@@ -25,11 +23,11 @@ class App extends StatelessWidget {
     home: const SplashPage(),
     routes: {
       SplashPage.id: (context) => const SplashPage(),
+      TaxoratScreen.id: (context) => const TaxoratScreen(),
       IntroPage.id: (context) => const IntroPage(),
-      HomePage.id: (context) => const HomePage(),
       NamozScreen.id: (context) => const NamozScreen(),
       TasbehScreen.id: (context) => const TasbehScreen(),
-      //keep coding....
+      HomeScreen.id: (context) => const HomeScreen(),
     },
   );
 }
