@@ -1,19 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:iyman_uz/features/namoz/presentation/widgets/category_widget.dart';
 
 import '../../../../core/colors/app_color.dart';
-import '../widgets/namoz_jalsa_widget.dart';
-import '../widgets/namoz_niyyat_qilish_widget.dart';
-import '../widgets/namoz_qada_widget.dart';
-import '../widgets/namoz_qiyom_three_widget.dart';
-import '../widgets/namoz_qiyom_two_widget.dart';
-import '../widgets/namoz_qiyom_widget.dart';
-import '../widgets/namoz_rakat_widget.dart';
-import '../widgets/namoz_ruku_widget.dart';
-import '../widgets/namoz_sajda_three_widget.dart';
-import '../widgets/namoz_sajda_two_widget.dart';
-import '../widgets/namoz_sajda_widget.dart';
-import '../widgets/namoz_salom_widget.dart';
-import '../widgets/namoz_takbiri_taxrima_widget.dart';
+
 
 class NamozScreen extends StatelessWidget {
   static const id = "/namoz_screen";
@@ -42,33 +31,27 @@ class NamozScreen extends StatelessWidget {
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children:  const [
-          SizedBox(height: 20),
-          NamozNiyyatQilish(),
-          SizedBox(height: 20),
-          NamozTakbiriTahrima(),
-          SizedBox(height: 20),
-          NamozQiyom(),
-          SizedBox(height: 20),
-          NamozRuku(),
-          SizedBox(height: 20),
-          NamozQiyomTwo(),
-          SizedBox(height: 20),
-          NamozSajda(),
-          SizedBox(height: 20),
-          NamozSajdaTwo(),
-          SizedBox(height: 20),
-          NamozJalsa(),
-          SizedBox(height: 20),
-          NamozSajdaThree(),
-          SizedBox(height: 20),
-          NamozQiyomThree(),
-          SizedBox(height: 20),
-          NamozRakat(),
-          SizedBox(height: 20),
-          NamozQada(),
-          SizedBox(height: 20),
-          NamozSalom(),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
+          NamozCategoryView(text: "Erkaklar Namozi"),
+          NamozCategoryView(text: "Ayollar Namozi"),
+          NamozCategoryView(text: "Musofir Namozi"),
+          NamozCategoryView(text: "Juma Namozi"),
+          NamozCategoryView(text: "Xayit Namozi"),
+          NamozCategoryView(text: "Tahajjud Namozi"),
+          NamozCategoryView(text: "Bamdod Namozi"),
+          NamozCategoryView(text: "Peshin Namozi"),
+          NamozCategoryView(text: "Asr Namozi"),
+          NamozCategoryView(text: "Shom Namozi"),
+          NamozCategoryView(text: "Xufton Namozi"),
+          NamozCategoryView(text: "Qazo Namozi"),
+          NamozCategoryView(text: "Namoz Farzlari"),
+          NamozCategoryView(text: "Namoz Sunnatlari"),
+          NamozCategoryView(text: "Namoz Vojiblari"),
+          NamozCategoryView(text: "Namoz Mustahablari"),
+          NamozCategoryView(text: "Namoz Xaromlari"),
+          NamozCategoryView(text: "Namoz Mufsidlari"),
+          NamozCategoryView(text: "Namoz Makruhlari"),
+          NamozCategoryView(text: "Namoz Mubohlari"),
         ],
       ),
     );

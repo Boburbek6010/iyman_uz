@@ -13,4 +13,7 @@ class ThemeService {
   // niyat qilish view text style
  static TextStyle subtitleTextStyle2 = TextStyle(fontSize: 22, color: Colors.green.shade900);
  static TextStyle contentTextStyle = TextStyle(fontSize: 18, color: Colors.grey.shade800);
+
+ // category view style
+ static TextStyle categoryTextStyle = const TextStyle(fontSize: 24,color: Colors.white);
 }

@@ -173,9 +173,7 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     EveryItemWidget(
-                      onPressed: (){
-
-                      },
+                      onPressed: (){},
                       image: Image.asset('assets/images/home/img_6.png'),
                       text: "ZAKOT",
                     ),
@@ -211,7 +209,7 @@ class HomeScreen extends StatelessWidget {
                         Navigator.pushNamed(context, TaxoratScreen.id);
                       },
                       image: Image.asset('assets/images/home/img_3.png'),
-                      text: "TAHORAT",
+                      text: "POKLANISH",
                     ),
                   ],
                 ),
