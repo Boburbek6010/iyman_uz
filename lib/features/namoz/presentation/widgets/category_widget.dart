@@ -8,26 +8,25 @@ class NamozCategoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      children: [
-         Container(
-          margin: const EdgeInsets.all(15),
-          padding: const EdgeInsets.all(18),
-          width: double.infinity,
-          height: 70,
-          decoration: BoxDecoration(
-           borderRadius: BorderRadius.circular(25),
-           color: Colors.green.shade800.withOpacity(0.6),
-         ),
-         child: MaterialButton(
-           onPressed: (() {}),
-           child: Text(
-               text,
-             style: ThemeService.categoryTextStyle,
-           ),
-         )
-         )
-      ],
+    return  Container(
+     margin: const EdgeInsets.all(15),
+     width: double.infinity,
+     height: 70,
+     decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+      color: Colors.green.shade800,
+    ),
+    child: MaterialButton(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20)
+      ),
+      padding: EdgeInsets.zero,
+      onPressed: (() {}),
+      child: Text(
+          text,
+        style: ThemeService.categoryTextStyle,
+      ),
+    )
     );
   }
 }
