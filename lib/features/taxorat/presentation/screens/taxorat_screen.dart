@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iyman_uz/features/namoz/presentation/widgets/category_widget.dart';
 import 'package:iyman_uz/features/taxorat/presentation/widgets/category_widgets.dart';
 
 import '../../../../core/colors/app_color.dart';
-import '../widgets/taxorats_widgets.dart';
+
 
 class TaxoratScreen extends StatelessWidget {
   static const id = "/taxorat_screen";
@@ -13,7 +12,7 @@ class TaxoratScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Taxorat"),
+        title: const Text("Poklanish"),
         centerTitle: true,
         backgroundColor: AppColors.namozScreenAppBarColor,
         leading: IconButton(
@@ -24,7 +23,7 @@ class TaxoratScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back,size: 30,color: AppColors.iconColor,),
         ),
       ),
-      backgroundColor: AppColors.backgroundColorIntroPage,
+        backgroundColor: const Color(0xff909d7f),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: const [
