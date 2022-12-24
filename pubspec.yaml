@@ -20,12 +20,14 @@ dependencies:
   # animation
   animated_text_kit: any
 
-
   # local database
   shared_preferences: ^2.0.15
 
   # architecture pattern
   provider: any
+
+  #compass
+  smooth_compass: ^2.0.2
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +84,8 @@ flutter:
     - assets/images/intro/ramadan_img.jpeg
     - assets/images/splash/transparent_img.png
     - assets/images/intro/zakat_img.jpeg
+    - assets/images/compass/img_6.png
+    - assets/images/compass/img_7.png
   # fonts:
   #   - family: Schyler
   #     fonts:

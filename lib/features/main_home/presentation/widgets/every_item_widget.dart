@@ -12,10 +12,10 @@ class EveryItemWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.only(top: 25, left: 15, right: 15),
+          margin: const EdgeInsets.only(top: 20, left: 10, right: 10),
           padding: const EdgeInsets.all(15),
-          height: 110,
-          width: 110,
+          height: 105,
+          width: 105,
           decoration: BoxDecoration(
               color: Colors.green.shade800.withOpacity(0.6),
               shape: BoxShape.circle),

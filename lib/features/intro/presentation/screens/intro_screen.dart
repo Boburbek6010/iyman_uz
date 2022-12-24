@@ -14,7 +14,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xff909d7f),
       body: ChangeNotifierProvider(
         create: (context) => IntroProvider(),
         builder: (context, widget) {
