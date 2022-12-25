@@ -4,9 +4,9 @@ import 'package:iyman_uz/features/namoz/presentation/widgets/category_widget.dar
 import '../../../../core/colors/app_color.dart';
 import 'erkaklar_namozi/erkaklar_namozi.dart';
 
-
 class NamozScreen extends StatelessWidget {
   static const id = "/namoz_screen";
+
   const NamozScreen({Key? key}) : super(key: key);
 
   @override
@@ -18,13 +18,13 @@ class NamozScreen extends StatelessWidget {
         backgroundColor: AppColors.namozScreenAppBarColor,
         leading: IconButton(
           splashRadius: 25,
-          onPressed: (){
+          onPressed: () {
             Navigator.of(context).pop();
           },
           icon: const Icon(
             Icons.arrow_back,
             size: 30,
-            color: AppColors.iconColor,
+            color: AppColors.backgroundColorIntroPage,
           ),
         ),
       ),
@@ -34,27 +34,30 @@ class NamozScreen extends StatelessWidget {
         children: [
           const SizedBox(height: 10),
           NamozCategoryView(
-              text: "Bamdod Namozi",
-              onPressed: (){   ErkaklarNamozi(); }),
-          NamozCategoryView(text: "Peshin Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Asr Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Shom Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Xufton Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Erkaklar Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Ayollar Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Musofir Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Juma Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Xayit Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Tahajjud Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Qazo Namozi", onPressed: (){}),
-          NamozCategoryView(text: "Namoz Farzlari", onPressed: (){}),
-          NamozCategoryView(text: "Namoz Sunnatlari", onPressed: (){}),
-          NamozCategoryView(text: "Namoz Vojiblari", onPressed: (){}),
-          NamozCategoryView(text: "Namoz Mustahablari", onPressed: (){}),
-          NamozCategoryView(text: "Namoz Xaromlari", onPressed: (){}),
-          NamozCategoryView(text: "Namoz Mufsidlari", onPressed: (){}),
-          NamozCategoryView(text: "Namoz Makruhlari", onPressed: (){}),
-          NamozCategoryView(text: "Namoz Mubohlari", onPressed: (){}),
+            text: "Bamdod Namozi",
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ErkaklarNamozi()));
+            },
+          ),
+          NamozCategoryView(text: "Peshin Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Asr Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Shom Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Xufton Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Erkaklar Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Ayollar Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Musofir Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Juma Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Xayit Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Tahajjud Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Qazo Namozi", onPressed: () {}),
+          NamozCategoryView(text: "Namoz Farzlari", onPressed: () {}),
+          NamozCategoryView(text: "Namoz Sunnatlari", onPressed: () {}),
+          NamozCategoryView(text: "Namoz Vojiblari", onPressed: () {}),
+          NamozCategoryView(text: "Namoz Mustahablari", onPressed: () {}),
+          NamozCategoryView(text: "Namoz Xaromlari", onPressed: () {}),
+          NamozCategoryView(text: "Namoz Mufsidlari", onPressed: () {}),
+          NamozCategoryView(text: "Namoz Makruhlari", onPressed: () {}),
+          NamozCategoryView(text: "Namoz Mubohlari", onPressed: () {}),
         ],
       ),
     );

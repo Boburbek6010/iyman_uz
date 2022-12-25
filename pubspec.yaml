@@ -30,6 +30,9 @@ dependencies:
   #compass
   smooth_compass: ^2.0.2
 
+  #data provider
+  http: ^0.13.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -21,7 +21,7 @@ class ErkaklarNamozi extends StatelessWidget {
           icon: const Icon(
             Icons.arrow_back,
             size: 30,
-            color: AppColors.iconColor,
+            color: AppColors.backgroundColorIntroPage,
           ),
         ),
       ),

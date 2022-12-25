@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smooth_compass/utils/src/compass_ui.dart';
 
-import '../../view_model/compass_vm.dart';
+import '../../../../make_less.dart';
 
 class CompassPage extends StatelessWidget {
   static const id = "/compass_page";
