@@ -23,18 +23,17 @@ class LanguageChooseWidget extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 30.0,
                   fontFamily: 'Bobbers',
-                  color: AppColors.appTextColor,
                 ),
                 child: AnimatedTextKit(
                   repeatForever: true,
                   animatedTexts: [
                     TyperAnimatedText('salam'.tr(),
-                      textStyle: const TextStyle(color: AppColors.appTextColor),
+                      textStyle: const TextStyle(color: Color(0xFF437928),),
                     ),
                     TyperAnimatedText("Iyman.uz",
-                      textStyle: const TextStyle(color: AppColors.appTextColor),),
+                      textStyle: const TextStyle(color: Color(0xFF437928),),),
                     TyperAnimatedText("welcome".tr(),
-                      textStyle: const TextStyle(color: AppColors.appTextColor),),
+                      textStyle: const TextStyle(color: Color(0xFF437928),),),
                   ],
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:iyman_uz/features/compass/presentation/pages/compass_page.dart';
 import 'package:iyman_uz/features/main_home/presentation/screens/home.dart';
 import 'package:iyman_uz/features/taxorat/presentation/screens/taxorat_screen.dart';
 
@@ -23,6 +24,7 @@ class App extends StatelessWidget {
     supportedLocales: context.supportedLocales,
     locale: context.locale,
     home: const HomeScreen(),
+    home: const CompassPage(),
     routes: {
       SplashPage.id: (context) => const SplashPage(),
       TaxoratScreen.id: (context) => const TaxoratScreen(),
@@ -30,6 +32,7 @@ class App extends StatelessWidget {
       NamozScreen.id: (context) => const NamozScreen(),
       TasbehScreen.id: (context) => const TasbehScreen(),
       HomeScreen.id: (context) => const HomeScreen(),
+      CompassPage.id: (context) => const CompassPage(),
     },
   );
 }

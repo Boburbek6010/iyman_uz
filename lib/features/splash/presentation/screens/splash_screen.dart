@@ -19,7 +19,7 @@ class SplashPage extends StatelessWidget {
       builder: (context, widget) {
         var splashVm = Provider.of<SplashVM>(context, listen: false);
         return Scaffold(
-          backgroundColor: AppColors.backgroundColor,
+          backgroundColor: const Color(0xff909d7f),
           body: Consumer<SplashVM>(
             builder: (context, cart, child){
               return Column(

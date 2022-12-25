@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iyman_uz/features/compass/presentation/pages/compass_page.dart';
 import 'package:iyman_uz/features/main_home/presentation/widgets/every_item_widget.dart';
 
 import '../../../namoz/presentation/screens/namoz_screen.dart';
@@ -103,8 +104,8 @@ class HomeScreen extends StatelessWidget {
                 ),
                 ///for clock
                 Container(
-                  height: 150,
-                  width: 150,
+                  height: 130,
+                  width: 130,
                   decoration: BoxDecoration(
                     color: Colors.green.shade800.withOpacity(0.5),
                     shape: BoxShape.circle,
@@ -131,8 +132,8 @@ class HomeScreen extends StatelessWidget {
                 ///for picture
                 Image(
                   fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width * 0.32,
-                  height: MediaQuery.of(context).size.height * 0.18,
+                  width: MediaQuery.of(context).size.width * 0.30,
+                  height: MediaQuery.of(context).size.height * 0.16,
                   image: const AssetImage('assets/images/home/img_1.png'),
                 ),
               ],
@@ -183,7 +184,9 @@ class HomeScreen extends StatelessWidget {
                       text: "HAJ",
                     ),
                     EveryItemWidget(
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.pushNamed(context, CompassPage.id);
+                      },
                       image: Image.asset('assets/images/home/img_3.png'),
                       text: "QIBLA",
                     ),
