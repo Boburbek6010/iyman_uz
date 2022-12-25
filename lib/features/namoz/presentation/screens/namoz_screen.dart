@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iyman_uz/features/namoz/presentation/widgets/category_widget.dart';
 
 import '../../../../core/colors/app_color.dart';
+import 'erkaklar_namozi/erkaklar_namozi.dart';
 
 
 class NamozScreen extends StatelessWidget {
@@ -32,7 +33,9 @@ class NamozScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         children: [
           const SizedBox(height: 10),
-          NamozCategoryView(text: "Bamdod Namozi", onPressed: (){}),
+          NamozCategoryView(
+              text: "Bamdod Namozi",
+              onPressed: (){   ErkaklarNamozi(); }),
           NamozCategoryView(text: "Peshin Namozi", onPressed: (){}),
           NamozCategoryView(text: "Asr Namozi", onPressed: (){}),
           NamozCategoryView(text: "Shom Namozi", onPressed: (){}),
