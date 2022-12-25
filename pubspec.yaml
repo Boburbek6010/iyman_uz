@@ -19,6 +19,7 @@ dependencies:
 
   # animation
   animated_text_kit: any
+  lottie: ^2.1.0
 
   # local database
   shared_preferences: ^2.0.15
@@ -86,6 +87,8 @@ flutter:
     - assets/images/intro/zakat_img.jpeg
     - assets/images/compass/img_6.png
     - assets/images/compass/img_7.png
+    - assets/images/compass/img.png
+    - assets/lotties/compass.json
   # fonts:
   #   - family: Schyler
   #     fonts:

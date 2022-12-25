@@ -12,8 +12,6 @@ import 'features/tasbeh/presentation/screen/tasbeh_screen.dart';
 class App extends StatelessWidget {
   const App({super.key});
 
-  // keep coding...
-
   @override
   Widget build(BuildContext context) => MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -23,7 +21,7 @@ class App extends StatelessWidget {
     localizationsDelegates: context.localizationDelegates,
     supportedLocales: context.supportedLocales,
     locale: context.locale,
-    home: const CompassPage(),
+    home: const HomeScreen(),
     routes: {
       SplashPage.id: (context) => const SplashPage(),
       TaxoratScreen.id: (context) => const TaxoratScreen(),

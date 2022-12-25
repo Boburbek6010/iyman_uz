@@ -32,9 +32,7 @@ class NamozScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         children: [
           const SizedBox(height: 10),
-          NamozCategoryView(text: "Bamdod Namozi", onPressed: (){
-            print("object");
-          }),
+          NamozCategoryView(text: "Bamdod Namozi", onPressed: (){}),
           NamozCategoryView(text: "Peshin Namozi", onPressed: (){}),
           NamozCategoryView(text: "Asr Namozi", onPressed: (){}),
           NamozCategoryView(text: "Shom Namozi", onPressed: (){}),
