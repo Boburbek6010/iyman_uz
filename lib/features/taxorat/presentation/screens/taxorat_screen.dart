@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iyman_uz/features/taxorat/presentation/widgets/category_widgets.dart';
 
 import '../../../../core/colors/app_color.dart';
+import 'erkaklar taxorat olishi/erkaklar_taxorat_olishi.dart';
 
 
 class TaxoratScreen extends StatelessWidget {
@@ -26,15 +27,18 @@ class TaxoratScreen extends StatelessWidget {
         backgroundColor: const Color(0xff909d7f),
       body: ListView(
         physics: const BouncingScrollPhysics(),
-        children: const [
-          SizedBox(height: 10),
-          TaxoratCategoryView(text: "Taxorat Farzlari"),
-          TaxoratCategoryView(text: "Taxorat Vojiblari"),
-          TaxoratCategoryView(text: "Taxorat Sunnatlari"),
-          TaxoratCategoryView(text: "Erkaklar Taxorat olish tartibi"),
-          TaxoratCategoryView(text: "Ayollar Taxorat olish tartibi"),
-          TaxoratCategoryView(text: "Taxoratni buzadigan amallar"),
-          TaxoratCategoryView(text: "Tayammum qilish tartibi"),
+        children:  [
+          const SizedBox(height: 10),
+          TaxoratCategoryView(text: "Taxorat Farzlari", onPressed: (() {}),),
+          TaxoratCategoryView(text: "Taxorat Vojiblari", onPressed: (() {}),),
+          TaxoratCategoryView(text: "Taxorat Sunnatlari",onPressed: (() {}),),
+          TaxoratCategoryView(
+              text: "Erkaklar Taxorat olish tartibi",
+            onPressed: (() { ErkaklarTaxoratOlishTartibi(); }),
+          ),
+          TaxoratCategoryView(text: "Ayollar Taxorat olish tartibi", onPressed: (() {}),),
+          TaxoratCategoryView(text: "Taxoratni buzadigan amallar", onPressed: (() {}),),
+          TaxoratCategoryView(text: "Tayammum qilish tartibi", onPressed: (() {}),),
         ],
       ),
     );

@@ -5,7 +5,7 @@ import '../../../../core/colors/theme_style.dart';
 class NamozCategoryView extends StatelessWidget {
   final String text;
   final void onPressed;
-  const NamozCategoryView({Key? key, required this.text, required this.onPressed}) : super(key: key);
+    const NamozCategoryView({Key? key, required this.text, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

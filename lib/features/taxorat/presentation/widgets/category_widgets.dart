@@ -4,7 +4,8 @@ import '../../../../core/colors/theme_style.dart';
 
 class TaxoratCategoryView extends StatelessWidget {
   final String text;
-  const TaxoratCategoryView({Key? key,required this.text}) : super(key: key);
+  final void onPressed;
+  const TaxoratCategoryView({Key? key,required this.text,required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class TaxoratCategoryView extends StatelessWidget {
               borderRadius: BorderRadius.circular(20)
             ),
             padding: EdgeInsets.zero,
-            onPressed: (() {}),
+            onPressed: (() => onPressed),
             child: Text(
                 text,
               style: ThemeService.categoryTextStyle,

@@ -24,7 +24,6 @@ class App extends StatelessWidget {
     supportedLocales: context.supportedLocales,
     locale: context.locale,
     home: const HomeScreen(),
-    home: const CompassPage(),
     routes: {
       SplashPage.id: (context) => const SplashPage(),
       TaxoratScreen.id: (context) => const TaxoratScreen(),
