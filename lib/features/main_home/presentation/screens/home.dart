@@ -10,11 +10,16 @@ import '../../../tasbeh/presentation/screen/tasbeh_screen.dart';
 import '../../../taxorat/presentation/screens/taxorat_screen.dart';
 import '../widgets/ramazon_counter_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const id = "/home_screen";
 
   const HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     NamozRepository namozRepository = NamozRepository.instance;
@@ -24,7 +29,9 @@ class HomeScreen extends StatelessWidget {
     late String timeOfPrayer;
     return StatefulWrapper(
       onInit: () {
-        namozRepository.getAllTimes();
+        namozRepository.getAllTimes().then((value) {
+          setState(() {});
+        });
         currentTime = DateFormat('kk:mm').format(now);
         currentDay = DateFormat(' EEE d MMM').format(now);
       },
