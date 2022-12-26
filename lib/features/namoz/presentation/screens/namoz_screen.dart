@@ -35,15 +35,16 @@ class NamozScreen extends StatelessWidget {
           const SizedBox(height: 10),
           NamozCategoryView(
             text: "Bamdod Namozi",
-            onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ErkaklarNamozi()));
-            },
-          ),
+            onPressed: () {}),
           NamozCategoryView(text: "Peshin Namozi", onPressed: () {}),
           NamozCategoryView(text: "Asr Namozi", onPressed: () {}),
           NamozCategoryView(text: "Shom Namozi", onPressed: () {}),
           NamozCategoryView(text: "Xufton Namozi", onPressed: () {}),
-          NamozCategoryView(text: "Erkaklar Namozi", onPressed: () {}),
+          NamozCategoryView(
+              text: "Erkaklar Namozi",
+              onPressed: () { Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ErkaklarNamozi()));
+              },
+          ),
           NamozCategoryView(text: "Ayollar Namozi", onPressed: () {}),
           NamozCategoryView(text: "Musofir Namozi", onPressed: () {}),
           NamozCategoryView(text: "Juma Namozi", onPressed: () {}),

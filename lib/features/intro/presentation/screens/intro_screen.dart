@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:iyman_uz/features/intro/presentation/widgets/indicator_view_widget.dart';
 import 'package:iyman_uz/features/intro/presentation/widgets/intro_view_widget.dart';
@@ -25,35 +26,35 @@ class IntroPage extends StatelessWidget {
               PageView(
                 onPageChanged: introProvider.onPageChanged,
                 controller: introProvider.pageController,
-                children: const [
+                children:  [
                   // text & image
                   IntroView(
-                    title: 'Faith',
+                    title: 'iymon'.tr(),
                     subtitle:
-                        "Confessing with the\n tongue and affirming\n with the heart",
+                        "introIyman".tr(),
                     image: "assets/images/intro/iyman_img.png",
-                    key: PageStorageKey(0),
+                    key: const PageStorageKey(0),
                   ),
                   IntroView(
-                      title: "Prayer",
-                      subtitle: "Obligatory for\n every Muslim",
+                      title: "namaz".tr(),
+                      subtitle: "introNamaz".tr(),
                       image: "assets/images/intro/namaz_img.jpeg",
-                      key: PageStorageKey(1)),
+                      key: const PageStorageKey(1)),
                   IntroView(
-                      title: "Fasting",
-                      subtitle: "Fasting during the\n month of Ramadan\n is obligatory for\n Muslim adults",
+                      title: "roza".tr(),
+                      subtitle: "introRoza".tr(),
                       image: "assets/images/intro/ramadan_img.jpeg",
-                      key: PageStorageKey(2)),
+                      key: const PageStorageKey(2)),
                   IntroView(
-                      title: "Zakat",
-                      subtitle: "charity given from\n wealth and income",
+                      title: "zakat".tr(),
+                      subtitle: "introZakat".tr(),
                       image: "assets/images/intro/zakat_img.jpeg",
-                      key: PageStorageKey(3)),
+                      key: const PageStorageKey(3)),
                   IntroView(
-                      title: "Hajj",
-                      subtitle: "Hajj is obligatory for\n every Muslim once\n in his life",
+                      title: "haj".tr(),
+                      subtitle: "introHaj".tr(),
                       image: "assets/images/intro/hajj_img.png",
-                      key: PageStorageKey(4)),
+                      key: const PageStorageKey(4)),
                 ],
               ),
               Consumer<IntroProvider>(
@@ -108,16 +109,16 @@ class IntroPage extends StatelessWidget {
                             ),
                             child: Center(
                               child: introProvider.currentPage != 4
-                                  ? const Text(
-                                      "Next",
-                                      style: TextStyle(
+                                  ?   Text(
+                                      "button".tr(),
+                                      style: const TextStyle(
                                         fontSize: 15,
                                         color: Colors.white,
                                       ),
                                     )
-                                  : const Text(
-                                      "Get Started",
-                                      style: TextStyle(
+                                  :  Text(
+                                      "buttonOne".tr(),
+                                      style: const TextStyle(
                                         fontSize: 17,
                                         color: Colors.white,
                                       ),

@@ -34,7 +34,8 @@ class TaxoratScreen extends StatelessWidget {
           TaxoratCategoryView(text: "Taxorat Sunnatlari",onPressed: (() {}),),
           TaxoratCategoryView(
               text: "Erkaklar Taxorat olish tartibi",
-            onPressed: (() { ErkaklarTaxoratOlishTartibi(); }),
+            onPressed: (() { Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ErkaklarTaxoratOlishTartibi()));
+            }),
           ),
           TaxoratCategoryView(text: "Ayollar Taxorat olish tartibi", onPressed: (() {}),),
           TaxoratCategoryView(text: "Taxoratni buzadigan amallar", onPressed: (() {}),),

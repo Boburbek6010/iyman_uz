@@ -5,7 +5,6 @@ import 'package:iyman_uz/features/splash/presentation/widgets/splash_logo_widget
 import 'package:provider/provider.dart';
 
 import '../../view_model/splash_vm.dart';
-import '../widgets/next_widget.dart';
 
 class SplashPage extends StatelessWidget {
   static const id = "/splash_page";
