@@ -23,12 +23,10 @@ class NamozRepository{
         params: networkProvider.paramsLocation("Toshkent"),
     );
     if(body != null) {
-      print("object");
       Map<String, dynamic> json = jsonDecode(body);
       response = NamozHours.fromJson(json);
       isDataVisible = true;
     }
-    print("object111");
     return response;
   }
 }
