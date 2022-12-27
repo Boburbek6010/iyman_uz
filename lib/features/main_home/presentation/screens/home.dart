@@ -1,4 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:iyman_uz/data/domain/namoz_repository.dart';
 import 'package:iyman_uz/features/compass/presentation/pages/compass_page.dart';
@@ -35,112 +37,118 @@ class HomeScreen extends StatelessWidget {
                 elevation: 0,
                 backgroundColor: Colors.green.shade900,
                 centerTitle: true,
-                title: const Text("TAQVO.uz"),
+                title: const Text("Taqvo.uz"),
               ),
               body: Column(
                 children: [
                   Expanded(
-                    flex: 2,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        /// for dates
-                        homeVm.namozRepository.isDataVisible
-                            ? Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(left: 10),
-                                        height: 15,
-                                        width: 15,
-                                        decoration: BoxDecoration(
-                                          color: Colors.green.shade900,
-                                          shape: BoxShape.circle,
-                                        ),
-                                      ),
-                                      const SizedBox(width: 5),
-                                      Text(
-                                        homeVm.namozRepository.response?.region ?? 'Tashkent',
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            color: Colors.green.shade900,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 30),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(left: 10),
-                                        height: 15,
-                                        width: 15,
-                                        decoration: BoxDecoration(
-                                          color: Colors.green.shade900,
-                                          shape: BoxShape.circle,
-                                        ),
-                                      ),
-                                      const SizedBox(width: 5),
-                                      Text(
-                                        homeVm.namozRepository.response?.date ?? homeVm.currentDay,
-                                        style: TextStyle(
-                                            fontSize: 17,
-                                            color: Colors.green.shade900,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            : Padding(
-                                padding: const EdgeInsets.only(left: 50),
-                                child: CircularProgressIndicator(
-                                  color: Colors.green.shade900,
-                                )),
-
-                        ///for clock
-                        homeVm.namozRepository.isDataVisible
-                            ? Container(
-                                height: 130,
-                                width: 130,
-                                decoration: BoxDecoration(
-                                  color: Colors.green.shade800.withOpacity(0.5),
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Column(
+                      flex: 2,
+                      child: (homeVm.isLoading && homeVm.namozRepository.isDataVisible)
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                /// for dates
+                                Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      homeVm.namozTimes(),
-                                      style: const TextStyle(
-                                        fontSize: 30,
-                                      ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          margin:
+                                              const EdgeInsets.only(left: 10),
+                                          height: 15,
+                                          width: 15,
+                                          decoration: BoxDecoration(
+                                            color: Colors.green.shade900,
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 5),
+                                        Text(
+                                          homeVm.namozRepository.response
+                                                  ?.region ??
+                                              'Tashkent',
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.green.shade900,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
                                     ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      homeVm.namozTimesReal(),
-                                      style: const TextStyle(
-                                          fontSize: 30,
-                                          fontWeight: FontWeight.w600),
+                                    const SizedBox(height: 30),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          margin:
+                                              const EdgeInsets.only(left: 10),
+                                          height: 15,
+                                          width: 15,
+                                          decoration: BoxDecoration(
+                                            color: Colors.green.shade900,
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 5),
+                                        Text(
+                                          homeVm.namozRepository.response
+                                                  ?.date ??
+                                              homeVm.currentDay,
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.green.shade900,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                              )
-                            : const SizedBox.shrink(),
 
-                        ///for picture
-                        Image(
-                          fit: BoxFit.cover,
-                          width: MediaQuery.of(context).size.width * 0.30,
-                          height: MediaQuery.of(context).size.height * 0.16,
-                          image:
-                              const AssetImage('assets/images/home/img_1.png'),
-                        ),
-                      ],
-                    ),
+                                ///for clock
+                                Container(
+                                  height: 130,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    color:
+                                        Colors.green.shade800.withOpacity(0.5),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        homeVm.namozTimes(),
+                                        style: const TextStyle(
+                                          fontSize: 30,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Text(
+                                        homeVm.namozTimesReal(),
+                                        style: const TextStyle(
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
+                                ///for picture
+                                Image.network(
+                                  homeVm.imgRef,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.30,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.16,
+                                  fit: BoxFit.cover,
+                                ),
+                              ],
+                            )
+                          : Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.green.shade900,
+                              ),
+                            ),
                   ),
                   Divider(
                     color: Colors.green.shade800,

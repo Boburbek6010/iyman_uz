@@ -1,5 +1,5 @@
 name: iyman_uz
-description: Flutter project for Iyman Uz
+description: Flutter project for Taqvo Uz
 
 version: 1.0.0+1
 
@@ -27,11 +27,17 @@ dependencies:
   # architecture pattern
   provider: any
 
-  #compass
+  # compass
   smooth_compass: ^2.0.2
 
-  #data provider
+  # data provider
   http: ^0.13.5
+
+  # firebase_core
+  firebase_core: ^2.4.0
+
+  # firebase_storage
+  firebase_storage: ^11.0.9
 
 dev_dependencies:
   flutter_test:
@@ -48,12 +54,8 @@ flutter:
     - assets/translations/en-US.json
     - assets/translations/uz-UZ.json
 
-    - assets/images/home/home_logo.jpg
-    - assets/images/home/home_logo_2.png
     - assets/images/home/home_logo_3.png
-    - assets/images/home/img.png
     - assets/images/home/img_1.png
-    - assets/images/home/img_2.png
     - assets/images/home/img_3.png
     - assets/images/home/img_4.png
     - assets/images/home/img_5.png

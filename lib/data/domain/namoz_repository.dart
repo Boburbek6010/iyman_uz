@@ -26,6 +26,7 @@ class NamozRepository{
       Map<String, dynamic> json = jsonDecode(body);
       response = NamozHours.fromJson(json);
       isDataVisible = true;
+      print(isDataVisible);
     }
     return response;
   }

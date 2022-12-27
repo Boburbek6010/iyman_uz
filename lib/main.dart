@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:iyman_uz/features/splash/view_model/splash_vm.dart';
@@ -10,6 +11,7 @@ bool hideIntroPage = true;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await EasyLocalization.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
   hideIntroPage = prefs.getBool('ON_BOARDING') ?? true;

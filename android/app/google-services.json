@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "564256902063",
+    "project_id": "taqvo-uz",
+    "storage_bucket": "taqvo-uz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564256902063:android:868ed72a4111632a1ebd5a",
+        "android_client_info": {
+          "package_name": "com.pdp.iyman_uz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564256902063-vmnjc3ak22j850h6e9p9bae2fk6co2r7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzlgMP26j5W7VGzH0ZLPIqFG8rO6SWJyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564256902063-vmnjc3ak22j850h6e9p9bae2fk6co2r7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

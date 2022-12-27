@@ -1,14 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iyman_uz/data/model/namoz_hours.dart';
+import 'package:http/http.dart';
 
 import '../../../data/domain/namoz_repository.dart';
 
+Reference get firebaseStorage => FirebaseStorage.instance.ref();
 
 class HomeVM extends ChangeNotifier{
 
   NamozRepository namozRepository = NamozRepository.instance;
   String? currentTime;
+  bool isLoading = false;
   String? formattedCurrentTime;
   int currentTimeInInt = 0;
   String str = "";
@@ -26,8 +29,9 @@ class HomeVM extends ChangeNotifier{
   int valueOfTimeA = 0;
   int valueOfTimeSh = 0;
   int valueOfTimeH = 0;
+  String imgRef = "";
 
-  void onInit(){
+  void onInit()async{
     currentTime = DateFormat('kk:mm').format(now);
     currentDay = DateFormat(' EEE d MMM').format(now);
     formattedCurrentTime = currentTime?.substring(0, 2);
@@ -54,6 +58,7 @@ class HomeVM extends ChangeNotifier{
       valueOfTimeH = int.parse(huftonTimeInString!);
       print("timeH $valueOfTimeH");
     });
+    await getImage("img_1");
   }
 
   String namozTimes(){
@@ -62,51 +67,56 @@ class HomeVM extends ChangeNotifier{
     });
     if(currentTimeInInt > valueOfTimeQ){
       str = "P";
-      // notifyListeners();
       return "Peshin";
     }else if(currentTimeInInt > valueOfTimeP){
       str = "A";
-      // notifyListeners();
       return "Asr";
     }else if(currentTimeInInt > valueOfTimeA){
       str = "Sh";
-      // notifyListeners();
       return "Shom";
     }else if(currentTimeInInt > valueOfTimeSh){
       str = "X";
-      // notifyListeners();
       return "Xufton";
     }else if(currentTimeInInt > valueOfTimeH){
       str = "B";
-      // notifyListeners();
       return "Bamdod";
     }else{
       str = "null";
-      // notifyListeners();
       return "Bamdod";
     }
   }
-
 
   String namozTimesReal(){
     Future.delayed(Duration.zero).then((value) {
       notifyListeners();
     });
     if(str == "P"){
-      // notifyListeners();
       return namozRepository.response?.times?.peshin ?? "";
     }else if(str == "A"){
-      // notifyListeners();
       return namozRepository.response?.times?.asr ?? "";
     }else if(str =="Sh"){
-      // notifyListeners();
       return namozRepository.response?.times?.shomIftor ?? "";
     }else if(str == "X"){
-      // notifyListeners();
       return namozRepository.response?.times?.hufton ?? "";
     }else{
-      // notifyListeners();
       return namozRepository.response?.times?.tongSaharlik ?? "";
+    }
+  }
+
+  Future<String?> getImage(String? imgName)async{
+    if(imgName == null){
+      return null;
+    }
+    try{
+      var urlRef = firebaseStorage.child("logo").child('${imgName.toLowerCase()}.png');
+      imgRef = await urlRef.getDownloadURL();
+      print(imgRef);
+      isLoading = true;
+      print(isLoading);
+      return imgRef;
+    }catch(e){
+      print(e);
+      return null;
     }
   }
 
