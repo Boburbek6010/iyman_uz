@@ -1,8 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:iyman_uz/data/domain/namoz_repository.dart';
 import 'package:iyman_uz/features/compass/presentation/pages/compass_page.dart';
 import 'package:iyman_uz/features/main_home/presentation/widgets/every_item_widget.dart';
 import 'package:iyman_uz/features/main_home/view_model/home_vm.dart';
@@ -32,7 +28,6 @@ class HomeScreen extends StatelessWidget {
             },
             child: Scaffold(
               backgroundColor: const Color(0xff909d7f),
-              drawer: const Drawer(),
               appBar: AppBar(
                 elevation: 0,
                 backgroundColor: Colors.green.shade900,
@@ -43,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Expanded(
                       flex: 2,
-                      child: (homeVm.isLoading && homeVm.namozRepository.isDataVisible)
+                      child: (homeVm.isLoading)
                           ? Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -109,8 +104,7 @@ class HomeScreen extends StatelessWidget {
                                   height: 130,
                                   width: 130,
                                   decoration: BoxDecoration(
-                                    color:
-                                        Colors.green.shade800.withOpacity(0.5),
+                                    color: Colors.green.shade800.withOpacity(0.5),
                                     shape: BoxShape.circle,
                                   ),
                                   child: Column(
@@ -136,10 +130,8 @@ class HomeScreen extends StatelessWidget {
                                 ///for picture
                                 Image.network(
                                   homeVm.imgRef,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.30,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.16,
+                                  width: MediaQuery.of(context).size.width * 0.30,
+                                  height: MediaQuery.of(context).size.height * 0.16,
                                   fit: BoxFit.cover,
                                 ),
                               ],

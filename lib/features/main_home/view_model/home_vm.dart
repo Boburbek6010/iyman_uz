@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:http/http.dart';
 
 import '../../../data/domain/namoz_repository.dart';
 
@@ -31,56 +30,56 @@ class HomeVM extends ChangeNotifier{
   int valueOfTimeH = 0;
   String imgRef = "";
 
-  void onInit()async{
+  void onInit(){
     currentTime = DateFormat('kk:mm').format(now);
     currentDay = DateFormat(' EEE d MMM').format(now);
     formattedCurrentTime = currentTime?.substring(0, 2);
     currentTimeInInt = int.parse(formattedCurrentTime!);
     namozRepository.getAllTimes().then((value) {
-      notifyListeners();
       bamdodTimeInString = namozRepository.response?.times?.tongSaharlik?.substring(0, 2);
       quyoshTimeInString = namozRepository.response?.times?.quyosh?.substring(0, 2);
       peshinTimeInString = namozRepository.response?.times?.peshin?.substring(0, 2);
       asrTimeInString = namozRepository.response?.times?.asr?.substring(0, 2);
       shomTimeInString = namozRepository.response?.times?.shomIftor?.substring(0, 2);
       huftonTimeInString = namozRepository.response?.times?.hufton?.substring(0, 2);
-      valueOfTimeB = int.parse(bamdodTimeInString!);
-      print("currentTimeInInt: $currentTimeInInt");
-      print("timeB $valueOfTimeB");
-      valueOfTimeQ = int.parse(quyoshTimeInString!);
-      print("timeQ $valueOfTimeQ");
-      valueOfTimeP = int.parse(peshinTimeInString!);
-      print("timeP $valueOfTimeP");
-      valueOfTimeA = int.parse(asrTimeInString!);
-      print("timeA $valueOfTimeA");
-      valueOfTimeSh = int.parse(shomTimeInString!);
-      print("timeSh $valueOfTimeSh");
-      valueOfTimeH = int.parse(huftonTimeInString!);
-      print("timeH $valueOfTimeH");
+      getImage("img_1").then((value) {
+        valueOfTimeB = int.parse(bamdodTimeInString!);
+        valueOfTimeQ = int.parse(quyoshTimeInString!);
+        valueOfTimeP = int.parse(peshinTimeInString!);
+        valueOfTimeA = int.parse(asrTimeInString!);
+        valueOfTimeSh = int.parse(shomTimeInString!);
+        valueOfTimeH = int.parse(huftonTimeInString!);
+        notifyListeners();
+      });
+      notifyListeners();
     });
-    await getImage("img_1");
   }
 
   String namozTimes(){
     Future.delayed(Duration.zero).then((value) {
       notifyListeners();
     });
-    if(currentTimeInInt > valueOfTimeQ){
-      str = "P";
-      return "Peshin";
-    }else if(currentTimeInInt > valueOfTimeP){
-      str = "A";
-      return "Asr";
-    }else if(currentTimeInInt > valueOfTimeA){
-      str = "Sh";
-      return "Shom";
-    }else if(currentTimeInInt > valueOfTimeSh){
+    if(currentTimeInInt > valueOfTimeH){
       str = "X";
       return "Xufton";
-    }else if(currentTimeInInt > valueOfTimeH){
+    }
+    else if(currentTimeInInt > valueOfTimeSh){
+      str = "Sh";
+      return "Shom";
+    }
+    else if(currentTimeInInt > valueOfTimeA){
+      str = "A";
+      return "Asr";
+    }
+    else if(currentTimeInInt > valueOfTimeP){
+      str = "P";
+      return "Peshin";
+    }
+    else if(currentTimeInInt > valueOfTimeQ){
       str = "B";
       return "Bamdod";
-    }else{
+    }
+    else{
       str = "null";
       return "Bamdod";
     }
@@ -92,27 +91,31 @@ class HomeVM extends ChangeNotifier{
     });
     if(str == "P"){
       return namozRepository.response?.times?.peshin ?? "";
-    }else if(str == "A"){
+    }
+    else if(str == "A"){
       return namozRepository.response?.times?.asr ?? "";
-    }else if(str =="Sh"){
+    }
+    else if(str =="Sh"){
       return namozRepository.response?.times?.shomIftor ?? "";
-    }else if(str == "X"){
+    }
+    else if(str == "X"){
       return namozRepository.response?.times?.hufton ?? "";
-    }else{
+    }
+    else{
       return namozRepository.response?.times?.tongSaharlik ?? "";
     }
   }
 
   Future<String?> getImage(String? imgName)async{
+    notifyListeners();
     if(imgName == null){
+      print("null");
       return null;
     }
     try{
       var urlRef = firebaseStorage.child("logo").child('${imgName.toLowerCase()}.png');
       imgRef = await urlRef.getDownloadURL();
-      print(imgRef);
       isLoading = true;
-      print(isLoading);
       return imgRef;
     }catch(e){
       print(e);
